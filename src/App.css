@@ -1,38 +1,176 @@
-.App {
+* {
+  cursor: default;
+}
+
+body {
+  display: flexbox;
+  font-size: 20px;
+  max-width: 700px;
+  width: 90vw;
+  height: 90vh;
+  justify-content: center;
+  margin: auto;
+}
+
+.main_content {
+  border: 2px solid black;
+  margin: 5%;
+  background-color: blue;
+}
+.cover {
+  border: 2px solid black;
+  margin: 10%;
+  width: 100%;
+}
+.info {
+  border: 2px solid black;
+  margin: 10%;
+  background-color: rgb(64, 64, 250);
+}
+.interface {
+  display: flex;
+  border: 2px solid black;
+  margin: auto;
+  justify-content: center;
+
+  align-items: center;
+  width: 50%;
+
+  background-color: darkblue;
+}
+.title {
+  border: 1px solid black;
+  background-color: lightblue;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.coverImage {
+  width: 40%;
+}
+.Button {
+  display: flexbox;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: auto;
+  padding: auto;
+  background-color: white;
+  border-color: blue;
+  cursor: default;
+  border: 3px solid;
+  border-radius: 25%;
+}
+.timer {
+  border: 2px solid;
+  justify-self: center;
+  align-self: center;
+
+  width: 100%;
+}
+.range {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.zeitDisplay {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  display: flexbox;
+  word-spacing: 200px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.currentlyPlaying {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.button {
+  position: fixed;
 }
+.liked {
+  background-color: red;
+  color: white;
+}
+.tracklist {
+  position: relative;
+  font-size: 1rem;
+  overflow-y: scroll;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  border: 1px solid white;
+  height: 140px;
+  width: 80%;
+  margin: auto;
+}
+.navigation {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 50;
+  gap: 3rem;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+}
+.navigation span {
+  padding: 1%;
+  border: 2px solid;
+}
+footer {
+  margin-bottom: 10%;
+}
+.overlay {
+  position: absolute;
+  top: 5%;
+  left: 10;
+  width: 50%;
+  max-width: 450px;
+  height: 70%;
+  background-color: rgba(17, 50, 170, 0.846);
+  z-index: 20;
+  justify-content: center;
+}
+.likeList {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.615);
+  margin: 5%;
+  justify-content: center;
+  border: 2px solid black;
+  list-style: none;
+  overflow-y: scroll;
+  height: 200px;
+}
+.likeHeader {
+  position: relative;
+  color: white;
+  top: 0;
+  text-align: center;
+  justify-content: center;
+}
+.playAllLiked {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  place-self: center;
+  margin: auto;
+  padding: auto;
+}
+.coverlist {
+  width: 90%;
+}
+.AlbumList {
+  padding-left: 0;
+  font-size: 1rem;
+  color: white;
+  margin: 0;
+  gap: 1rem;
+  text-align: center;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+
+  overflow-y: scroll;
+  height: 100%;
 }

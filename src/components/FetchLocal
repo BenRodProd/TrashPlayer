@@ -1,0 +1,14 @@
+export default function FetchLocal() {
+  //   localStorageLiked = localStorage.getItem("liked");
+  //   localStorageLast = localStorage.getItem("lastPlayed");
+  //   if (localStorageLiked === null) {
+  //     localStorage.setItem("liked", "");
+  //   }
+  //   if (localStorageLast === null) {
+  //     localStorage.setItem("lastPlayed", "1");
+  //   }
+  //   LikedArray = localStorageLiked.split(",");
+  //   LastTrackID = Number(localStorageLast);
+  //   trackID = LastTrackID;
+  //   console.log(LikedArray);
+}
