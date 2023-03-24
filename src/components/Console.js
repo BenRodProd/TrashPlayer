@@ -1,4 +1,4 @@
-export default function Console() {
+export default function Console({ setConsoleStatus }) {
   return (
     <>
       <div className="interface">

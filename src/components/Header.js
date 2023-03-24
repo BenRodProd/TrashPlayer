@@ -1,12 +1,28 @@
 export default function Header({ id }) {
   console.log(id);
   if (id === "1") {
-    document.body.style.backgroundColor = "black";
+    return (
+      <div className="main_content">
+        <h1>ALBUMS</h1>
+      </div>
+    );
   } else if (id === "2") {
-    document.body.style.backgroundColor = "yellow";
+    return (
+      <div className="main_content">
+        <h1>YOUR LIKED TRACKS</h1>
+      </div>
+    );
   } else if (id === "3") {
-    document.body.style.backgroundColor = "red";
+    return (
+      <div className="main_content">
+        <h1>YOUR PLAYLIST</h1>
+      </div>
+    );
   } else if (id === "4") {
-    document.body.style.backgroundColor = "blue";
+    return (
+      <div className="main_content">
+        <h1>PLAY ALL TRACKS</h1>
+      </div>
+    );
   }
 }

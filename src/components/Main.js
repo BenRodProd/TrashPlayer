@@ -5,33 +5,44 @@ import Console from "./Console";
 import Playlist from "./Playlist";
 import FetchLib from "./FetchLib";
 import Navigation from "./Navigation.js";
+import Info from "./Info";
+import TimeDisplay from "./TimeDisplay";
 
 export default function Main() {
+  const [lastPlayed, setLastPlayed] = useState(1);
+  const [currentNavi, setCurrentNavi] = useState("1");
+  const [likedTracks, setLikedTracks] = useState([]);
+  const [consoleStatus, setConsoleStatus] = useState("pause");
+
   const Library = FetchLib();
-  // console.log(Library[1].TITLE);
+
+  const [imageSrc, setImageSrc] = useState("http://" + Library[1][1].COVERURL);
+  const [trackSrc, setTrackSrc] = useState("http://" + Library[1][1].URL);
+  console.log(trackSrc);
   //   const local = FetchLocal();
   FetchLocal();
-  const [currentNavi, setCurrentNavi] = useState("1");
-  console.log("main id ", currentNavi);
+  console.log("lastplaxed", lastPlayed);
+
   return (
     <>
       <Header id={currentNavi} />
-      <Cover />
+      <Cover imageSrc={imageSrc} />
       <Playlist />
-      <Console />
+      <Info />
+      <Console consoleStatus={consoleStatus} />
+      <TimeDisplay />
       <Navigation setCurrentNavi={setCurrentNavi} />
+      <audio autoplay data-js="mp3" preload="metadata" id="mp3"></audio>
     </>
   );
   function FetchLocal() {
-    const [lastPlayed, setLastPlayed] = useState([]);
-
     useEffect(() => {
       const lastPlayed = JSON.parse(localStorage.getItem("LastPlayed"));
       if (lastPlayed) {
         setLastPlayed(lastPlayed);
+        console.log("last", lastPlayed);
       }
     }, []);
-    const [likedTracks, setLikedTracks] = useState([]);
 
     useEffect(() => {
       const likedTracks = JSON.parse(localStorage.getItem("liked"));
@@ -39,9 +50,9 @@ export default function Main() {
         setLikedTracks(likedTracks);
       }
     }, []);
-    if (lastPlayed === "") {
+    if (!lastPlayed) {
       setLastPlayed(1);
-      console.log(lastPlayed);
+      console.log("lastplayed", lastPlayed);
     }
   }
 }
