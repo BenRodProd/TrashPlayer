@@ -1,5 +1,5 @@
-{
-  "1": {
+[
+  {
     "ARTIST": "bENJO tRASH",
     "ALBUM": "Back To The Source",
     "NUMBER": "1",
@@ -12,7 +12,7 @@
     "TRACKID": "1"
   },
 
-  "2": {
+  {
     "ARTIST": "bENJO tRASH",
     "ALBUM": "Back To The Source",
     "NUMBER": "2",
@@ -25,7 +25,7 @@
     "TRACKID": "2"
   },
 
-  "3": {
+  {
     "ARTIST": "bENJO tRASH",
     "ALBUM": "pARALLEL uNIVERSE",
     "NUMBER": "1",
@@ -37,7 +37,7 @@
     "TRACKID": "3",
     "ALBUMID": "2"
   },
-  "4": {
+  {
     "ARTIST": "bENJO tRASH",
     "ALBUM": "pARALLEL uNIVERSE",
     "NUMBER": "2",
@@ -49,4 +49,4 @@
     "TRACKID": "4",
     "ALBUMID": "2"
   }
-}
+]

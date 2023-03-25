@@ -1,18 +1,18 @@
-{
-  "1": {
+[
+  {
     "ALBUMID": "1",
     "TITLE": "bACK tO tHE sOURCE",
     "TRACKS": "[bACK tO tHE sOURCE,sOME gREATER mEANING]",
     "NUMBEROFTRACKS": "2",
-    "TRACKIDS": "[1, 2]",
+    "TRACKIDS": "1, 2",
     "COVERURL": "benjotrash.de/trashplayer/music/bACK%20tO%20tHE%20sOURCE/cover.webp"
   },
-  "2": {
+  {
     "ALBUMID": "2",
     "TITLE": "pARALLEL uNIVERSE",
     "TRACKS": "pARALLEL uNIVERSE;mAN iN tHE mIRROR",
     "NUMBEROFTRACKS": "2",
-    "TRACKIDS": "[3,4]",
+    "TRACKIDS": "3, 4",
     "COVERURL": "benjotrash.de/trashplayer/music/pARALLEL%20uNIVERSE/cover.webp"
   }
-}
+]
