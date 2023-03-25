@@ -27,14 +27,18 @@ export default function Main() {
   FetchLocal();
 
   function handleConsole(consoleStatus) {
+    console.log(Library[lastPlayed - 1].NUMBER, songList[0]);
     if (consoleStatus === "play") {
       audio.play();
-      FetchAudioData(setCurrentDuration, setCurrentTimer);
     } else if (consoleStatus === "pause") {
       audio.pause();
-    } else if (consoleStatus === "next" && lastPlayed !== Library.length) {
+    } else if (
+      consoleStatus === "next" &&
+      Library[lastPlayed - 1].NUMBER < songList.length
+    ) {
       playSong(Number(lastPlayed) + 1);
-    } else if (consoleStatus === "prev" && lastPlayed > 1) {
+    } else if (consoleStatus === "prev" && Library[lastPlayed - 1].NUMBER > 1) {
+      console.log("songlist", songList[0]);
       playSong(lastPlayed - 1);
     }
   }
@@ -51,8 +55,6 @@ export default function Main() {
     setCurrentNavi("player");
 
     audio.src = "http://" + Library[ID - 1].URL;
-
-    console.log(ID);
   }
 
   function FetchLocal() {
@@ -84,11 +86,12 @@ export default function Main() {
       <Cover Library={Library} navi={currentNavi} track={lastPlayed} />
       <Playlist
         navi={currentNavi}
-        list={AlbumLib}
+        Albumlist={AlbumLib}
         PlayAlbum={PlayAlbum}
         playSong={playSong}
         songList={songList}
         Library={Library}
+        lastPlayed={lastPlayed}
       />
       <Info trackID={lastPlayed} Library={Library} navi={currentNavi} />
       <Console

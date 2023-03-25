@@ -1,10 +1,5 @@
 ,
-        ALBUMID: 3
-        TITLE:a lOVED lOVE,
-        TRACKS:[a lOVED lOVE,a lIVED lIVE,dRIFTED,sHIFTED,gIFTED,lIFTED,mESSED uP,tIME tO rEST,sUPPRESSED fEELINGS],
-        NUMBEROFTRACKS:9,
-        TRACKIDS:[5,6,7,8,9,10,11,12,13],
-        COVERURL:benjotrash.de/trashplayer/music/a%20lOVED%20lOVE/cover.webp,
+        
         {
             ARTIST:bENJO tRASH,
             ALBUM:a lOVED lOVE,

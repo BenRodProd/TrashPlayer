@@ -1,41 +1,54 @@
 export default function Playlist({
   navi,
-  list,
+  Albumlist,
   PlayAlbum,
   playSong,
   songList,
   Library,
+  lastPlayed,
 }) {
   if (navi === "albums") {
     return (
-      <div className="cover">
-        {list.map((album) => (
-          <img
-            key={album.ALBUMID}
-            id={album.ALBUMID}
-            onClick={() => PlayAlbum(album.ALBUMID)}
-            className="coverImage"
-            src={"http://" + album.COVERURL}
-            alt="Cover"
-          ></img>
+      <div className="AlbumList">
+        {Albumlist.map((album) => (
+          <>
+            <span>
+              <img
+                key={album.ALBUMID}
+                id={album.ALBUMID}
+                onClick={() => PlayAlbum(album.ALBUMID)}
+                className="AlbumImage"
+                src={"http://" + album.COVERURL}
+                alt="Cover"
+              ></img>
+              <p>{album.TITLE}</p>
+              <p>{album.GENRE}</p>
+            </span>
+          </>
         ))}
       </div>
     );
   } else if (navi === "player") {
+    // console.log("playlist", songList[0], Library[songList[0]].TRACKID);
+    console.log("last", lastPlayed);
     return (
-      <div className="playlist">
+      <div className="tracklist">
         <ul className="list">
-          {/* {songList.map((track) => (
+          {songList.map((track) => (
             <li
-              key={Library[track].ID}
-              id={Library[track].ID}
-              onClick={() => playSong(track.ID)}
-              className="coverImage"
+              key={Library[Number(track) - 1].TRACKID}
+              id={Library[Number(track) - 1].TRACKID}
+              onClick={() => playSong(Library[Number(track) - 1].TRACKID)}
               alt="Cover"
+              className={` ${
+                Library[Number(track) - 1].TRACKID === lastPlayed
+                  ? "track active"
+                  : "track"
+              }`}
             >
-              {track.TRACK}
+              {track}. {Library[Number(track) - 1].TRACK}
             </li>
-          ))} */}
+          ))}
         </ul>
       </div>
     );

@@ -5,7 +5,8 @@
     "TRACKS": "[bACK tO tHE sOURCE,sOME gREATER mEANING]",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "1, 2",
-    "COVERURL": "benjotrash.de/trashplayer/music/bACK%20tO%20tHE%20sOURCE/cover.webp"
+    "COVERURL": "benjotrash.de/trashplayer/music/bACK%20tO%20tHE%20sOURCE/cover.webp",
+    "GENRE": "AMBIENT"
   },
   {
     "ALBUMID": "2",
@@ -13,6 +14,23 @@
     "TRACKS": "pARALLEL uNIVERSE;mAN iN tHE mIRROR",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "3, 4",
-    "COVERURL": "benjotrash.de/trashplayer/music/pARALLEL%20uNIVERSE/cover.webp"
+    "COVERURL": "benjotrash.de/trashplayer/music/pARALLEL%20uNIVERSE/cover.webp",
+    "GENRE": "TRIPHOP"
+  },
+  {
+    "ALBUMID": "3",
+    "TITLE": "a lOVED lOVE",
+    "TRACKS": "[a lOVED lOVE,a lIVED lIVE,dRIFTED,sHIFTED,gIFTED,lIFTED,mESSED uP,tIME tO rEST,sUPPRESSED fEELINGS]",
+    "NUMBEROFTRACKS": "9",
+    "TRACKIDS": "5,6,7,8,9,10,11,12,13",
+    "COVERURL": "benjotrash.de/trashplayer/music/a%20lOVED%20lOVE/cover.webp"
+  },
+  {
+    "ALBUMID": "4",
+    "TITLE": "oPEN hEART sURGERY",
+    "TRACKS": "[oPEN hEART sURGERY,eXPANDING eNDLESSNESS]",
+    "NUMBEROFTRACKS": "2",
+    "TRACKIDS": "14,15",
+    "COVERURL": "benjotrash.de/trashplayer/music/oPEN%20hEART%20sURGERY/cover.webp"
   }
 ]

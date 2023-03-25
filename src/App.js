@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 function App() {
   return (
-    <div className="container_lg App">
+    <div className="App main_content">
       <header className="App-header">Trash Player</header>
 
       <Main />
