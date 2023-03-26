@@ -33,12 +33,21 @@ export default function Main() {
       audio.pause();
     } else if (
       consoleStatus === "next" &&
-      Library[lastPlayed - 1].NUMBER < songList.length
+      songList.findIndex((el) => el === Number(lastPlayed)) <
+        songList.length - 1
     ) {
-      playSong(Number(lastPlayed) + 1);
+      playSong(
+        songList[songList.findIndex((el) => el === Number(lastPlayed)) + 1]
+      );
       setConsoleStatus("play");
-    } else if (consoleStatus === "prev" && Library[lastPlayed - 1].NUMBER > 1) {
-      playSong(lastPlayed - 1);
+    } else if (
+      consoleStatus === "prev" &&
+      songList.findIndex((el) => el === Number(lastPlayed)) > 0
+    ) {
+      playSong(
+        songList[songList.findIndex((el) => el === Number(lastPlayed)) - 1]
+      );
+
       setConsoleStatus("play");
     } else if (consoleStatus === "stop") {
       audio.pause();
@@ -46,12 +55,24 @@ export default function Main() {
       audio.currentTime = "0";
     }
   }
+  function PlayAllTracks() {
+    const allTracks = Library.map((el) => {
+      return Number(el.TRACKID);
+    });
+    setSongList(allTracks);
 
+    playSong(allTracks[0]);
+  }
   function PlayAlbum(ID) {
     setAlbumID(ID);
     const currentAlbumTrackIDS = AlbumLib[ID - 1].TRACKIDS.split(",");
-    playSong(currentAlbumTrackIDS[0]);
-    setSongList(currentAlbumTrackIDS);
+    const newAlbumTracks = [];
+    for (let i = 0; i < currentAlbumTrackIDS.length; i++) {
+      newAlbumTracks.push(Number(currentAlbumTrackIDS[i]));
+    }
+    console.log(newAlbumTracks);
+    playSong(newAlbumTracks[0]);
+    setSongList(newAlbumTracks);
   }
   function playSong(ID) {
     audio.pause();
@@ -116,6 +137,8 @@ export default function Main() {
         lastPlayed={lastPlayed}
         likedTracks={likedTracks}
         setLikedTracks={setLikedTracks}
+        setCurrentNavi={setCurrentNavi}
+        PlayAllTracks={PlayAllTracks}
       />
       <Info trackID={lastPlayed} Library={Library} navi={currentNavi} />
       <Console

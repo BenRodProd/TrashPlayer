@@ -9,6 +9,8 @@ export default function Playlist({
   likedTracks,
   setLikedTracks,
   setSongList,
+  setCurrentNavi,
+  PlayAllTracks,
 }) {
   let count = 1;
   function handleCounter() {
@@ -27,6 +29,8 @@ export default function Playlist({
       localStorage.setItem("liked", likedTracks);
     }
   }
+  count = 1;
+
   if (navi === "albums") {
     return (
       <div className="AlbumList">
@@ -135,44 +139,6 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "all") {
-    count = 1;
-    const allTracks = Library.map((el) => {
-      return el.TRACKID;
-    });
-    setSongList(allTracks);
-    return (
-      <div className="tracklist">
-        <ul className="list">
-          {Library.map((track) => (
-            <>
-              <li
-                key={track}
-                id={track.TRACKID}
-                onClick={() => playSong(track.TRACKID)}
-                alt="Cover"
-                className={` ${
-                  track.TRACKID === lastPlayed ? "track active" : "track"
-                }`}
-              >
-                {count}. {track.TRACK}
-                <button
-                  type="button"
-                  key={likedTracks[track]}
-                  className={
-                    likedTracks.includes(track.TRACKID)
-                      ? "likeButton liked"
-                      : "likeButton"
-                  }
-                  onClick={() => LikeTrack(track.TRACKID)}
-                >
-                  ❤️
-                </button>
-              </li>
-              {handleCounter()}
-            </>
-          ))}
-        </ul>
-      </div>
-    );
+    PlayAllTracks();
   }
 }
