@@ -1,3 +1,4 @@
+import PlayGenre from "./PlayGenre";
 export default function Playlist({
   navi,
   Albumlist,
@@ -11,6 +12,8 @@ export default function Playlist({
   setSongList,
   setCurrentNavi,
   PlayAllTracks,
+  playGenre,
+  genreHtml,
 }) {
   let count = 1;
   function handleCounter() {
@@ -140,5 +143,7 @@ export default function Playlist({
     );
   } else if (navi === "all") {
     PlayAllTracks();
+  } else if (navi === "genre") {
+    return <PlayGenre Library={Library} />;
   }
 }

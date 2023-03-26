@@ -4,9 +4,12 @@ export default function Console({
   setConsoleStatus,
   handle,
   navi,
+  currentTimer,
+  currentDuration,
+  setCurrentTimer,
 }) {
   const [playButton, setPlayButton] = useState("⏸");
-
+  const audio = document.querySelector('[data-js="mp3"]');
   function handlePlayButton() {
     if (consoleStatus === "play") {
       setConsoleStatus("pause");
@@ -19,7 +22,7 @@ export default function Console({
     }
   }
 
-  if (navi === "player") {
+  if (navi !== "albums") {
     return (
       <>
         <div className="interface">
@@ -60,6 +63,14 @@ export default function Console({
           >
             ⏭
           </button>
+          <input
+            value={(currentTimer * 100) / currentDuration}
+            className="range"
+            type="range"
+            onInput={(event) =>
+              (audio.currentTime = (currentDuration / 100) * event.target.value)
+            }
+          ></input>
         </div>
       </>
     );

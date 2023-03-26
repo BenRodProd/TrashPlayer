@@ -25,7 +25,9 @@ export default function Main() {
   const audio = document.querySelector('[data-js="mp3"]');
   //   const local = FetchLocal();
   FetchLocal();
-
+  
+  
+  }
   function handleConsole(consoleStatus) {
     if (consoleStatus === "play") {
       audio.play();
@@ -139,6 +141,8 @@ export default function Main() {
         setLikedTracks={setLikedTracks}
         setCurrentNavi={setCurrentNavi}
         PlayAllTracks={PlayAllTracks}
+        playGenre={playGenre}
+        genreHtml={genreHtml}
       />
       <Info trackID={lastPlayed} Library={Library} navi={currentNavi} />
       <Console
@@ -146,6 +150,9 @@ export default function Main() {
         handle={handleConsole}
         navi={currentNavi}
         consoleStatus={consoleStatus}
+        currentTimer={currentTimer}
+        currentDuration={currentDuration}
+        setCurrentTimer={setCurrentTimer}
       />
 
       <TimeDisplay
