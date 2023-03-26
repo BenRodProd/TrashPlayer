@@ -87,10 +87,18 @@ body {
   word-spacing: 200px;
   text-align: center;
 }
+.likeButton {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  right: 0;
+  filter: grayscale();
+}
 
 .liked {
-  background-color: red;
   color: white;
+  filter: none;
+  border: none;
 }
 .tracklist {
   position: relative;
@@ -129,17 +137,7 @@ footer {
   margin-top: 50%;
   margin-bottom: 10%;
 }
-.overlay {
-  position: absolute;
-  top: 5%;
-  left: 10;
-  width: 50%;
-  max-width: 450px;
-  height: 70%;
-  background-color: rgba(17, 50, 170, 0.846);
-  z-index: 20;
-  justify-content: center;
-}
+
 .likeList {
   position: relative;
   background-color: rgba(255, 255, 255, 0.615);
@@ -187,6 +185,7 @@ footer {
 }
 .AlbumImage {
   width: 60%;
+  box-shadow: 11px 11px 13px 5px rgba(0, 0, 0, 0.4);
 }
 .App-header {
   background-color: lightblue;
@@ -199,4 +198,20 @@ li {
   font-size: 1rem;
   background-color: aqua;
   margin-bottom: 0;
+}
+.release {
+  color: lightgrey;
+  font-size: 0.8rem;
+}
+.consoleButton {
+  background-color: transparent;
+  font-size: 2rem;
+  margin: 4%;
+  border: none;
+}
+button:active {
+  border: none;
+}
+button:focus {
+  outline: none;
 }

@@ -11,8 +11,8 @@ export default function Navigation({ setCurrentNavi }) {
       <button className="Button" type="button" id="liked" onClick={clicked}>
         Liked
       </button>
-      <button className="Button" type="button" id="playlist" onClick={clicked}>
-        Playlist
+      <button className="Button" type="button" id="genre" onClick={clicked}>
+        Genre
       </button>
       <button className="Button" type="button" id="all" onClick={clicked}>
         All Tracks

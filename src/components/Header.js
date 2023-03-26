@@ -11,10 +11,10 @@ export default function Header({ navi, header }) {
         <h1>YOUR LIKED TRACKS</h1>
       </div>
     );
-  } else if (navi === "playlist") {
+  } else if (navi === "genre") {
     return (
       <div className="main_content">
-        <h1>YOUR PLAYLIST</h1>
+        <h1>Genres</h1>
       </div>
     );
   } else if (navi === "all") {

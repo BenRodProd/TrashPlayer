@@ -27,7 +27,6 @@ export default function Main() {
   FetchLocal();
 
   function handleConsole(consoleStatus) {
-    console.log(Library[lastPlayed - 1].NUMBER, songList[0]);
     if (consoleStatus === "play") {
       audio.play();
     } else if (consoleStatus === "pause") {
@@ -37,9 +36,14 @@ export default function Main() {
       Library[lastPlayed - 1].NUMBER < songList.length
     ) {
       playSong(Number(lastPlayed) + 1);
+      setConsoleStatus("play");
     } else if (consoleStatus === "prev" && Library[lastPlayed - 1].NUMBER > 1) {
-      console.log("songlist", songList[0]);
       playSong(lastPlayed - 1);
+      setConsoleStatus("play");
+    } else if (consoleStatus === "stop") {
+      audio.pause();
+      setCurrentTimer(0);
+      audio.currentTime = "0";
     }
   }
 
@@ -53,7 +57,8 @@ export default function Main() {
     audio.pause();
     onChangeLastPlayed(ID);
     setCurrentNavi("player");
-
+    // setSongList(AlbumLib[Number(Library[ID].ALBUMID)].TRACKIDS);
+    // setAlbumID(Library[ID].ALBUMID);
     audio.src = "http://" + Library[ID - 1].URL;
   }
 
@@ -70,21 +75,38 @@ export default function Main() {
     }, []);
 
     useEffect(() => {
-      const likedTracks = JSON.parse(localStorage.getItem("liked"));
+      const likedTracks = localStorage.getItem("liked");
       if (likedTracks) {
-        setLikedTracks(likedTracks);
+        const likedArray = likedTracks.split(",");
+        for (let i = 0; i < likedArray.length; i++) {
+          likedArray[i] = Number(likedArray[i]);
+        }
+        setLikedTracks(likedArray);
+        console.log("liked", likedArray);
       }
     }, []);
   }
+
   function onChangeLastPlayed(ID) {
     setLastPlayed(ID);
     localStorage.setItem("LastPlayed", ID);
   }
+  audio.addEventListener("timeupdate", (event) => {
+    setCurrentTimer(event.target.currentTime);
+  });
+  audio.addEventListener("timeupdate", (event) => {
+    if (currentDuration === isNaN) {
+      setCurrentDuration("0:00");
+    }
+    setCurrentDuration(event.target.duration);
+  });
+
   return (
     <>
       <Header navi={currentNavi} header={Library[lastPlayed - 1].TRACK} />
       <Cover Library={Library} navi={currentNavi} track={lastPlayed} />
       <Playlist
+        setSongList={setSongList}
         navi={currentNavi}
         Albumlist={AlbumLib}
         PlayAlbum={PlayAlbum}
@@ -92,12 +114,15 @@ export default function Main() {
         songList={songList}
         Library={Library}
         lastPlayed={lastPlayed}
+        likedTracks={likedTracks}
+        setLikedTracks={setLikedTracks}
       />
       <Info trackID={lastPlayed} Library={Library} navi={currentNavi} />
       <Console
         setConsoleStatus={setConsoleStatus}
         handle={handleConsole}
         navi={currentNavi}
+        consoleStatus={consoleStatus}
       />
 
       <TimeDisplay

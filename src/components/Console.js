@@ -1,43 +1,64 @@
-export default function Console({ setConsoleStatus, handle, navi }) {
+import { useState } from "react";
+export default function Console({
+  consoleStatus,
+  setConsoleStatus,
+  handle,
+  navi,
+}) {
+  const [playButton, setPlayButton] = useState("⏸");
+
+  function handlePlayButton() {
+    if (consoleStatus === "play") {
+      setConsoleStatus("pause");
+      handle("pause");
+      setPlayButton("▶");
+    } else {
+      setConsoleStatus("play");
+      handle("play");
+      setPlayButton("⏸");
+    }
+  }
+
   if (navi === "player") {
     return (
       <>
         <div className="interface">
           <button
+            className="consoleButton"
+            onClick={() => handlePlayButton()}
+            type="button"
+          >
+            {playButton}
+          </button>
+          <button
+            className="consoleButton"
             onClick={() => {
-              setConsoleStatus("play");
-              handle("play");
+              setConsoleStatus("stop");
+              handle("stop");
             }}
             type="button"
           >
-            PLAY
+            ⏹
           </button>
           <button
-            onClick={() => {
-              setConsoleStatus("pause");
-              handle("pause");
-            }}
-            type="button"
-          >
-            PAUSE
-          </button>
-          <button
+            className="consoleButton"
             onClick={() => {
               setConsoleStatus("prev");
               handle("prev");
             }}
             type="button"
           >
-            PREV
+            ⏮
           </button>
           <button
+            className="consoleButton"
             onClick={() => {
               setConsoleStatus("next");
               handle("next");
             }}
             type="button"
           >
-            NEXT
+            ⏭
           </button>
         </div>
       </>

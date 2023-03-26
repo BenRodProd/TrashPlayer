@@ -3,7 +3,7 @@ export default function FetchAudioData(setCurrentDuration, setCurrentTimer) {
   audio.addEventListener("loadedmetadata", () => {
     let currentDuration = Number(audio.duration);
     let currentTimer = Number(audio.currentTime);
-    console.log("curent", currentTimer);
+
     setCurrentTimer(currentTimer);
     setCurrentDuration(currentDuration);
   });

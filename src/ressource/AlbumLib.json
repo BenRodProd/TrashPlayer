@@ -6,7 +6,8 @@
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "1, 2",
     "COVERURL": "benjotrash.de/trashplayer/music/bACK%20tO%20tHE%20sOURCE/cover.webp",
-    "GENRE": "AMBIENT"
+    "GENRE": "AMBIENT",
+    "RELEASE": "FEB 2023"
   },
   {
     "ALBUMID": "2",
@@ -15,7 +16,8 @@
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "3, 4",
     "COVERURL": "benjotrash.de/trashplayer/music/pARALLEL%20uNIVERSE/cover.webp",
-    "GENRE": "TRIPHOP"
+    "GENRE": "TRIPHOP",
+    "RELEASE": "JAN 2023"
   },
   {
     "ALBUMID": "3",
@@ -23,7 +25,9 @@
     "TRACKS": "[a lOVED lOVE,a lIVED lIVE,dRIFTED,sHIFTED,gIFTED,lIFTED,mESSED uP,tIME tO rEST,sUPPRESSED fEELINGS]",
     "NUMBEROFTRACKS": "9",
     "TRACKIDS": "5,6,7,8,9,10,11,12,13",
-    "COVERURL": "benjotrash.de/trashplayer/music/a%20lOVED%20lOVE/cover.webp"
+    "COVERURL": "benjotrash.de/trashplayer/music/a%20lOVED%20lOVE/cover.webp",
+    "GENRE": "AMBIENT",
+    "RELEASE": "NOV 2022"
   },
   {
     "ALBUMID": "4",
@@ -31,6 +35,8 @@
     "TRACKS": "[oPEN hEART sURGERY,eXPANDING eNDLESSNESS]",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "14,15",
-    "COVERURL": "benjotrash.de/trashplayer/music/oPEN%20hEART%20sURGERY/cover.webp"
+    "COVERURL": "benjotrash.de/trashplayer/music/oPEN%20hEART%20sURGERY/cover.webp",
+    "GENRE": "LOFI",
+    "RELEASE": "DEZ 2022"
   }
 ]
