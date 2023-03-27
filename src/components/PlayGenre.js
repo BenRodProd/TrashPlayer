@@ -1,33 +1,49 @@
-export default function PlayGenre(Library) {
-  const genres = Library.Library.map((el) => {
+export default function PlayGenre({ Library, OnPlayAlbum }) {
+  const genres = Library.map((el) => {
     return el.GENRE;
   });
 
   const allGenres = Array.from(new Set(genres));
-  console.log("allGenres", allGenres);
+
   const genreCover = [];
   for (let i = 0; i < allGenres.length; i++) {
     genreCover.push(
-      Library.Library.filter((el) => {
+      Library.filter((el) => {
         return el.GENRE === allGenres[i];
       })
     );
   }
-  console.log("genreCover", genreCover);
 
+  function getCovers(i) {
+    let CoverNow;
+    let html = [];
+    function playTheGenre() {}
+    for (let j = 0; j < genreCover[i].length; j++) {
+      CoverNow = genreCover[i][j].COVERURL;
+
+      html.push(
+        <>
+          <img
+            onClick={() => OnPlayAlbum(genreCover[i][j].ALBUMID)}
+            className="genreImage"
+            alt="Cover"
+            src={"http://" + CoverNow}
+            key={CoverNow}
+            id={CoverNow}
+          ></img>
+        </>
+      );
+    }
+    html.push(<p onClick={playTheGenre()}>{allGenres[i]}</p>);
+    return html;
+  }
   return (
     <div className="genrelist">
-      <ul className="list">
-        {allGenres.map((el) =>
-          genreCover.map((element) => (
-            <img
-              alt="Cover"
-              src={"http://" + element.COVERURL}
-              key={element.ID}
-              id={element.ID}
-            ></img>
-          ))
-        )}
+      <ul className="genreDiv">
+        {allGenres.map((el) => getCovers(allGenres.indexOf(el)))}
+        {/* {allGenres.map((el) => (
+         
+        ))} */}
       </ul>
     </div>
   );

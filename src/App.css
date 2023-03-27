@@ -215,3 +215,13 @@ button:active {
 button:focus {
   outline: none;
 }
+.genreImage {
+  width: 30%;
+}
+.genreImageDiv {
+  overflow-x: scroll;
+}
+.genreDiv {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

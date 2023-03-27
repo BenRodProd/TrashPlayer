@@ -10,14 +10,16 @@ export default function Playlist({
   likedTracks,
   setLikedTracks,
   setSongList,
-  setCurrentNavi,
+  setConsoleStatus,
   PlayAllTracks,
   playGenre,
-  genreHtml,
 }) {
   let count = 1;
   function handleCounter() {
     count++;
+  }
+  function HandlePlayAlbum(id) {
+    PlayAlbum(id);
   }
   function LikeTrack(ID) {
     if (likedTracks.includes(ID)) {
@@ -100,7 +102,7 @@ export default function Playlist({
     );
   } else if (navi === "liked") {
     count = 1;
-    setSongList(likedTracks);
+    // setSongList(likedTracks);
     return (
       <div className="tracklist">
         <ul className="list">
@@ -144,6 +146,6 @@ export default function Playlist({
   } else if (navi === "all") {
     PlayAllTracks();
   } else if (navi === "genre") {
-    return <PlayGenre Library={Library} />;
+    return <PlayGenre Library={Albumlist} OnPlayAlbum={HandlePlayAlbum} />;
   }
 }

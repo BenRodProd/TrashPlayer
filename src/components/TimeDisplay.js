@@ -1,4 +1,7 @@
 export default function TimeDisplay({ currentTimer, currentDuration, navi }) {
+  if (isNaN(currentDuration)) {
+    currentDuration = 0;
+  }
   let DurationShow;
   let DurationFixed = currentDuration / 60;
   let TimerSeconds = Math.floor(currentTimer);

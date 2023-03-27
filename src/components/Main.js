@@ -8,7 +8,7 @@ import Navigation from "./Navigation.js";
 import Info from "./Info";
 import TimeDisplay from "./TimeDisplay";
 import FetchAlbumLib from "./FetchAlbumLib";
-import FetchAudioData from "./FetchAudioData";
+
 export default function Main() {
   const [lastPlayed, setLastPlayed] = useState(1);
   const [currentNavi, setCurrentNavi] = useState("albums");
@@ -25,9 +25,7 @@ export default function Main() {
   const audio = document.querySelector('[data-js="mp3"]');
   //   const local = FetchLocal();
   FetchLocal();
-  
-  
-  }
+
   function handleConsole(consoleStatus) {
     if (consoleStatus === "play") {
       audio.play();
@@ -72,7 +70,7 @@ export default function Main() {
     for (let i = 0; i < currentAlbumTrackIDS.length; i++) {
       newAlbumTracks.push(Number(currentAlbumTrackIDS[i]));
     }
-    console.log(newAlbumTracks);
+
     playSong(newAlbumTracks[0]);
     setSongList(newAlbumTracks);
   }
@@ -93,7 +91,6 @@ export default function Main() {
       }
       if (!lastPlayed) {
         onChangeLastPlayed(1);
-        console.log("nottin");
       }
     }, []);
 
@@ -105,7 +102,6 @@ export default function Main() {
           likedArray[i] = Number(likedArray[i]);
         }
         setLikedTracks(likedArray);
-        console.log("liked", likedArray);
       }
     }, []);
   }
@@ -118,7 +114,7 @@ export default function Main() {
     setCurrentTimer(event.target.currentTime);
   });
   audio.addEventListener("timeupdate", (event) => {
-    if (currentDuration === isNaN) {
+    if (isNaN(currentDuration)) {
       setCurrentDuration("0:00");
     }
     setCurrentDuration(event.target.duration);
@@ -141,8 +137,7 @@ export default function Main() {
         setLikedTracks={setLikedTracks}
         setCurrentNavi={setCurrentNavi}
         PlayAllTracks={PlayAllTracks}
-        playGenre={playGenre}
-        genreHtml={genreHtml}
+        setConsoleStatus={setConsoleStatus}
       />
       <Info trackID={lastPlayed} Library={Library} navi={currentNavi} />
       <Console
@@ -164,49 +159,3 @@ export default function Main() {
     </>
   );
 }
-// IMPORTET FUNCTIONS
-// function zeitDisplayFunction() {
-// let timerNow = currentMp3.currentTime;
-
-//   let currentDuration = currentMp3.duration;
-
-//   let TimerSeconds = Math.floor(timerNow);
-//   let DurationFixed = currentDuration / 60;
-//   if (currentDuration > 600) {
-//     DurationShow = DurationFixed.toFixed(2);
-//   } else {
-//     DurationShow = "0" + DurationFixed.toFixed(2);
-//   }
-//   if (TimerSeconds < 10) {
-//     ZeitDisplay.innerText = "00." + "0" + TimerSeconds + " " + DurationShow;
-//   } else if (TimerSeconds < 60) {
-//     ZeitDisplay.innerText = "00." + TimerSeconds + " " + DurationShow;
-//   } else if (TimerSeconds >= 60 && TimerSeconds < 600) {
-//     ZeitDisplay.innerText =
-//       "0" + (TimerSeconds / 60).toFixed(2) + " " + DurationShow;
-//   } else if (TimerSeconds > 600) {
-//     ZeitDisplay.innerText = (TimerSeconds / 60).toFixed(2) + " " + DurationShow;
-//   }
-// }
-//   function ShowTimer() {
-//     const timer = document.querySelector('[data-js="timer"]');
-
-//     let timerNow = currentMp3.currentTime;
-
-//     let currentDuration = currentMp3.duration;
-//     let DurationPercent = (timerNow / currentDuration) * 100;
-
-//     timer.value = DurationPercent;
-//     let TimerSeconds = Math.floor(timerNow);
-
-//     timer.addEventListener("input", (event) => {
-//       newtimer = event.target.value;
-//       timer.value = Number(event.target.value);
-
-//       currentMp3.currentTime = (currentDuration / 100) * newtimer;
-
-//       TimerSeconds = Math.floor(currentMp3.currentTime);
-//       zeitDisplayFunction();
-//     });
-//   }
-//
