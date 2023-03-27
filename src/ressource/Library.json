@@ -181,5 +181,53 @@
     "URL": "benjotrash.de/trashplayer/music/oPEN%20hEART%20sURGERY/eXPANDING%20eNDLESSNESS.mp3",
     "ALBUMID": "4",
     "TRACKID": "15"
+  },
+  {
+    "ARTIST": "bENJO tRASH",
+    "ALBUM": "tHE fLOW",
+    "NUMBER": "1",
+    "TRACK": "tHE fLOW",
+    "GENRE": "DRUM AND BASS",
+    "YEAR": "2022",
+    "COVERURL": "benjotrash.de/trashplayer/music/tHE%20fLOW/cover.webp",
+    "URL": "benjotrash.de/trashplayer/music/tHE%20fLOW/1%20tHE%20fLOW.mp3",
+    "ALBUMID": "5",
+    "TRACKID": "16"
+  },
+  {
+    "ARTIST": "bENJO tRASH",
+    "ALBUM": "tHE fLOW",
+    "NUMBER": "2",
+    "TRACK": "dATA sTRUCTURE",
+    "GENRE": "DRUM AND BASS",
+    "YEAR": "2022",
+    "COVERURL": "benjotrash.de/trashplayer/music/tHE%20fLOW/cover.webp",
+    "URL": "benjotrash.de/trashplayer/music/tHE%20fLOW/2%20dATA%20sTRUCTURE.mp3",
+    "ALBUMID": "5",
+    "TRACKID": "17"
+  },
+  {
+    "ARTIST": "bENJO tRASH",
+    "ALBUM": "wINTER aNTHEM",
+    "NUMBER": "1",
+    "TRACK": "wINTER aNTHEM",
+    "GENRE": "LOFI",
+    "YEAR": "2022",
+    "COVERURL": "benjotrash.de/trashplayer/music/wINTER%20aNTHEM/cover.webp",
+    "URL": "benjotrash.de/trashplayer/music/wINTER%20aNTHEM/wINTER%20aNTHEM.mp3",
+    "ALBUMID": "6",
+    "TRACKID": "18"
+  },
+  {
+    "ARTIST": "bENJO tRASH",
+    "ALBUM": "wINTER aNTHEM",
+    "NUMBER": "2",
+    "TRACK": "aLWAYS bURN sLOW",
+    "GENRE": "LOFI",
+    "YEAR": "2022",
+    "COVERURL": "benjotrash.de/trashplayer/music/wINTER%20aNTHEM/cover.webp",
+    "URL": "benjotrash.de/trashplayer/music/wINTER%20aNTHEM/aLWAYS%20bURN%20sLOW.mp3",
+    "ALBUMID": "6",
+    "TRACKID": "19"
   }
 ]

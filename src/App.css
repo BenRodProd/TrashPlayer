@@ -175,11 +175,11 @@ footer {
   grid-template-columns: 55% 55%;
   text-align: center;
   list-style: none;
-
+  margin: 5px;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-
+  row-gap: 55px;
   overflow-y: scroll;
   height: 65vh;
 }
@@ -217,11 +217,23 @@ button:focus {
 }
 .genreImage {
   width: 30%;
+  margin: 5px;
 }
 .genreImageDiv {
-  overflow-x: scroll;
+  display: inline-block;
+  padding: 4px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: lightblue;
 }
 .genreDiv {
   overflow-x: hidden;
   overflow-y: scroll;
+  height: 65vh;
+}
+.genreText {
+  margin-top: 2rem;
+  color: white;
+  font-size: 2rem;
 }

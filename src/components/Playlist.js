@@ -43,7 +43,7 @@ export default function Playlist({
           <>
             <span>
               <img
-                key={album}
+                key={album.ALBUMID}
                 id={album.ALBUMID}
                 onClick={() => PlayAlbum(album.ALBUMID)}
                 className="AlbumImage"
@@ -66,7 +66,7 @@ export default function Playlist({
           {songList.map((track) => (
             <>
               <li
-                key={track}
+                key={track.ID}
                 id={Library[Number(track) - 1].TRACKID}
                 onClick={() => playSong(Library[Number(track) - 1].TRACKID)}
                 alt="Cover"
@@ -79,7 +79,7 @@ export default function Playlist({
                 {count}. {Library[Number(track) - 1].TRACK}
                 <button
                   type="button"
-                  key={track}
+                  key={track.ID}
                   className={
                     likedTracks.includes(
                       Number(Library[Number(track) - 1].TRACKID)
@@ -102,7 +102,7 @@ export default function Playlist({
     );
   } else if (navi === "liked") {
     count = 1;
-    // setSongList(likedTracks);
+    setSongList(likedTracks);
     return (
       <div className="tracklist">
         <ul className="list">

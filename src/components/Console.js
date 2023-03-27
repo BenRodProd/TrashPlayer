@@ -22,7 +22,7 @@ export default function Console({
     }
   }
 
-  if (navi !== "albums" && navi !== "genre") {
+  if (navi !== "albums" && navi !== "genre" && navi !== "liked") {
     return (
       <>
         <div className="interface">

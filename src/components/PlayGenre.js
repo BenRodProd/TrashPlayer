@@ -18,6 +18,7 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
     let CoverNow;
     let html = [];
     function playTheGenre() {}
+
     for (let j = 0; j < genreCover[i].length; j++) {
       CoverNow = genreCover[i][j].COVERURL;
 
@@ -34,17 +35,24 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
         </>
       );
     }
-    html.push(<p onClick={playTheGenre()}>{allGenres[i]}</p>);
+
+    html.push(
+      <>
+        <p className="genreText" onClick={playTheGenre()}>
+          {allGenres[i]}
+        </p>
+        <p>_____________________________</p>
+      </>
+    );
+
     return html;
   }
   return (
-    <div className="genrelist">
-      <ul className="genreDiv">
-        {allGenres.map((el) => getCovers(allGenres.indexOf(el)))}
-        {/* {allGenres.map((el) => (
+    <ul className="genreDiv">
+      {allGenres.map((el) => getCovers(allGenres.indexOf(el)))}
+      {/* {allGenres.map((el) => (
          
         ))} */}
-      </ul>
-    </div>
+    </ul>
   );
 }

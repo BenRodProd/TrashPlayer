@@ -36,7 +36,27 @@
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "14,15",
     "COVERURL": "benjotrash.de/trashplayer/music/oPEN%20hEART%20sURGERY/cover.webp",
-    "GENRE": "LOFI",
+    "GENRE": "AMBIENT",
+    "RELEASE": "DEZ 2022"
+  },
+  {
+    "ALBUMID": "5",
+    "TITLE": "tHE fLOW",
+    "TRACKS": "[tHE fLOW,dATA sTRUCTURE]",
+    "NUMBEROFTRACKS": "2",
+    "TRACKIDS": "16,17",
+    "COVERURL": "benjotrash.de/trashplayer/music/tHE%20fLOW/cover.webp",
+    "GENRE": "DRUM AND BASS",
+    "RELEASE": "OCT 2022"
+  },
+  {
+    "ALBUMID": "6",
+    "TITLE": "wINTER aNTHEM",
+    "TRACKS": "[wINTER aNTHEM,aLWAYS bURN sLOW]",
+    "NUMBEROFTRACKS": "2",
+    "TRACKIDS": "18,19",
+    "COVERURL": "benjotrash.de/trashplayer/music/wINTER%20aNTHEM/cover.webp",
+    "GENRE": "AMBIENT",
     "RELEASE": "DEZ 2022"
   }
 ]
