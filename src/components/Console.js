@@ -15,6 +15,7 @@ export default function Console({
       setConsoleStatus("pause");
       handle("pause");
       setPlayButton("▶");
+    } else if (consoleStatus === "stop ") {
     } else {
       setConsoleStatus("play");
       handle("play");
@@ -38,6 +39,7 @@ export default function Console({
             onClick={() => {
               setConsoleStatus("stop");
               handle("stop");
+              setPlayButton("▶");
             }}
             type="button"
           >
@@ -48,6 +50,7 @@ export default function Console({
             onClick={() => {
               setConsoleStatus("prev");
               handle("prev");
+              setPlayButton("⏸");
             }}
             type="button"
           >
@@ -58,6 +61,7 @@ export default function Console({
             onClick={() => {
               setConsoleStatus("next");
               handle("next");
+              setPlayButton("⏸");
             }}
             type="button"
           >

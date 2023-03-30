@@ -8,11 +8,10 @@ export default function Playlist({
   Library,
   lastPlayed,
   likedTracks,
-  setLikedTracks,
+  LikeTrack,
   setSongList,
   setConsoleStatus,
   PlayAllTracks,
-  playGenre,
 }) {
   let count = 1;
   function handleCounter() {
@@ -21,22 +20,11 @@ export default function Playlist({
   function HandlePlayAlbum(id) {
     PlayAlbum(id);
   }
-  function LikeTrack(ID) {
-    if (likedTracks.includes(ID)) {
-      const newlikedTracks = likedTracks.filter((el) => {
-        return el !== ID;
-      });
-      setLikedTracks(newlikedTracks);
-      localStorage.setItem("liked", newlikedTracks);
-    } else {
-      likedTracks.push(ID);
-      setLikedTracks(likedTracks);
-      localStorage.setItem("liked", likedTracks);
-    }
-  }
+
   count = 1;
 
   if (navi === "albums") {
+    setConsoleStatus("pause");
     return (
       <div className="AlbumList">
         {Albumlist.map((album) => (
@@ -66,7 +54,7 @@ export default function Playlist({
           {songList.map((track) => (
             <>
               <li
-                key={track.ID}
+                key={track.TRACKID}
                 id={Library[Number(track) - 1].TRACKID}
                 onClick={() => playSong(Library[Number(track) - 1].TRACKID)}
                 alt="Cover"
@@ -101,6 +89,7 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "liked") {
+    setConsoleStatus("pause");
     count = 1;
     setSongList(likedTracks);
     return (
@@ -109,7 +98,7 @@ export default function Playlist({
           {likedTracks.map((track) => (
             <>
               <li
-                key={track}
+                key={track.TRACKID}
                 id={Library[Number(track) - 1].TRACKID}
                 onClick={() => playSong(Library[Number(track) - 1].TRACKID)}
                 alt="Cover"
@@ -122,7 +111,7 @@ export default function Playlist({
                 {count}. {Library[Number(track) - 1].TRACK}
                 <button
                   type="button"
-                  key={likedTracks[track]}
+                  key={track.TRACKID}
                   className={
                     likedTracks.includes(
                       Number(Library[Number(track) - 1].TRACKID)

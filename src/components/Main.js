@@ -14,10 +14,10 @@ export default function Main() {
   const [currentNavi, setCurrentNavi] = useState("albums");
   const [likedTracks, setLikedTracks] = useState([]);
   const [consoleStatus, setConsoleStatus] = useState("pause");
-  const [handleConsoleTrigger, setHandleConsoleTrigger] = useState("pause");
+  // const [handleConsoleTrigger, setHandleConsoleTrigger] = useState("pause");
   const [albumID, setAlbumID] = useState("1");
-  const [currentDuration, setCurrentDuration] = useState("00:00");
-  const [currentTimer, setCurrentTimer] = useState("00:00");
+  const [currentDuration, setCurrentDuration] = useState(0);
+  const [currentTimer, setCurrentTimer] = useState(0);
   const [songList, setSongList] = useState([]);
   const Library = FetchLib();
   const AlbumLib = FetchAlbumLib();
@@ -25,12 +25,32 @@ export default function Main() {
   const audio = document.querySelector('[data-js="mp3"]');
   //   const local = FetchLocal();
   FetchLocal();
-
+  function handleCurrentNavi(navi) {
+    setCurrentNavi(navi);
+  }
+  function LikeTrack(ID) {
+    if (likedTracks.includes(ID)) {
+      const newlikedTracks = likedTracks.filter((el) => {
+        return el !== ID;
+      });
+      setLikedTracks(newlikedTracks);
+      localStorage.setItem("liked", newlikedTracks);
+    } else {
+      const newlikedTracks = likedTracks.split.push(ID);
+      setLikedTracks(newlikedTracks);
+      localStorage.setItem("liked", newlikedTracks);
+    }
+  }
+  function handleSongList(list) {
+    setSongList(list);
+  }
   function handleConsole(consoleStatus) {
     if (consoleStatus === "play") {
       audio.play();
+      setConsoleStatus(consoleStatus);
     } else if (consoleStatus === "pause") {
       audio.pause();
+      setConsoleStatus(consoleStatus);
     } else if (
       consoleStatus === "next" &&
       songList.findIndex((el) => el === Number(lastPlayed)) <
@@ -112,10 +132,14 @@ export default function Main() {
   }
   audio.addEventListener("timeupdate", (event) => {
     setCurrentTimer(event.target.currentTime);
+    if (isNaN(currentTimer)) {
+      console.log("nan");
+      setCurrentTimer(0);
+    }
   });
   audio.addEventListener("timeupdate", (event) => {
     if (isNaN(currentDuration)) {
-      setCurrentDuration("0:00");
+      setCurrentDuration(0);
     }
     setCurrentDuration(event.target.duration);
   });
@@ -125,7 +149,7 @@ export default function Main() {
       <Header navi={currentNavi} header={Library[lastPlayed - 1].TRACK} />
       <Cover Library={Library} navi={currentNavi} track={lastPlayed} />
       <Playlist
-        setSongList={setSongList}
+        setSongList={handleSongList}
         navi={currentNavi}
         Albumlist={AlbumLib}
         PlayAlbum={PlayAlbum}
@@ -134,14 +158,14 @@ export default function Main() {
         Library={Library}
         lastPlayed={lastPlayed}
         likedTracks={likedTracks}
-        setLikedTracks={setLikedTracks}
-        setCurrentNavi={setCurrentNavi}
+        LikeTrack={LikeTrack}
+        setCurrentNavi={handleCurrentNavi}
         PlayAllTracks={PlayAllTracks}
-        setConsoleStatus={setConsoleStatus}
+        setConsoleStatus={handleConsole}
       />
       <Info trackID={lastPlayed} Library={Library} navi={currentNavi} />
       <Console
-        setConsoleStatus={setConsoleStatus}
+        setConsoleStatus={handleConsole}
         handle={handleConsole}
         navi={currentNavi}
         consoleStatus={consoleStatus}
@@ -155,7 +179,7 @@ export default function Main() {
         currentTimer={currentTimer}
         navi={currentNavi}
       />
-      <Navigation setCurrentNavi={setCurrentNavi} />
+      <Navigation setCurrentNavi={handleCurrentNavi} />
     </>
   );
 }
