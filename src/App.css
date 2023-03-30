@@ -6,7 +6,7 @@ body {
   display: flexbox;
   position: relative;
   font-size: 20px;
-
+  max-width: 700px;
   width: 100vw;
   height: 100vh;
   justify-content: center;

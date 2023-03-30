@@ -36,9 +36,9 @@ export default function Main() {
       setLikedTracks(newlikedTracks);
       localStorage.setItem("liked", newlikedTracks);
     } else {
-      const newlikedTracks = likedTracks.split.push(ID);
-      setLikedTracks(newlikedTracks);
-      localStorage.setItem("liked", newlikedTracks);
+      likedTracks.push(ID);
+      setLikedTracks(likedTracks);
+      localStorage.setItem("liked", likedTracks);
     }
   }
   function handleSongList(list) {
@@ -171,7 +171,6 @@ export default function Main() {
         consoleStatus={consoleStatus}
         currentTimer={currentTimer}
         currentDuration={currentDuration}
-        setCurrentTimer={setCurrentTimer}
       />
 
       <TimeDisplay

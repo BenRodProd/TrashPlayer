@@ -6,7 +6,6 @@ export default function Console({
   navi,
   currentTimer,
   currentDuration,
-  setCurrentTimer,
 }) {
   const [playButton, setPlayButton] = useState("⏸");
   const audio = document.querySelector('[data-js="mp3"]');
@@ -22,7 +21,9 @@ export default function Console({
       setPlayButton("⏸");
     }
   }
-
+  if (isNaN(audio.currentTime)) {
+    audio.currentTime = 0;
+  }
   if (navi !== "albums" && navi !== "genre" && navi !== "liked") {
     return (
       <>
