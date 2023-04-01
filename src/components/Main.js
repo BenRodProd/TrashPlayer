@@ -93,11 +93,13 @@ export default function Main() {
 
     playSong(newAlbumTracks[0]);
     setSongList(newAlbumTracks);
+    setConsoleStatus("play");
   }
   function playSong(ID) {
     audio.pause();
     onChangeLastPlayed(ID);
     setCurrentNavi("player");
+    setConsoleStatus("play");
     // setSongList(AlbumLib[Number(Library[ID].ALBUMID)].TRACKIDS);
     // setAlbumID(Library[ID].ALBUMID);
     audio.src = "http://" + Library[ID - 1].URL;
@@ -143,7 +145,9 @@ export default function Main() {
     }
     setCurrentDuration(event.target.duration);
   });
-
+  if (isNaN(currentDuration)) {
+    setCurrentDuration(10);
+  }
   return (
     <>
       <Header navi={currentNavi} header={Library[lastPlayed - 1].TRACK} />
@@ -171,6 +175,7 @@ export default function Main() {
         consoleStatus={consoleStatus}
         currentTimer={currentTimer}
         currentDuration={currentDuration}
+        audio={audio}
       />
 
       <TimeDisplay

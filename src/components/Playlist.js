@@ -32,7 +32,7 @@ export default function Playlist({
     }
   }
   if (navi === "albums") {
-    // setConsoleStatus("pause");
+    setConsoleStatus("pause");
     return (
       <div key={uuidv4()} className="AlbumList">
         {Albumlist.map((album, index) => (
@@ -71,23 +71,24 @@ export default function Playlist({
                 className={isPlaying(Library[Number(track) - 1].TRACKID)}
               >
                 {count}. {Library[Number(track) - 1].TRACK}
-                <button
-                  type="button"
-                  key={uuidv4()}
-                  className={
-                    likedTracks.includes(
-                      Number(Library[Number(track) - 1].TRACKID)
-                    )
-                      ? "likeButton liked"
-                      : "likeButton"
-                  }
-                  onClick={() =>
-                    LikeTrack(Number(Library[Number(track) - 1].TRACKID))
-                  }
-                >
-                  ❤️
-                </button>
               </li>
+              <button
+                type="button"
+                key={uuidv4()}
+                className={
+                  likedTracks.includes(
+                    Number(Library[Number(track) - 1].TRACKID)
+                  )
+                    ? "likeButton liked"
+                    : "likeButton"
+                }
+                onClick={() =>
+                  LikeTrack(Number(Library[Number(track) - 1].TRACKID))
+                }
+              >
+                ❤️
+              </button>
+
               {handleCounter()}
             </>
           ))}
@@ -95,11 +96,11 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "liked") {
-    // setConsoleStatus("pause");
+    setConsoleStatus("pause");
     count = 1;
     setSongList(likedTracks);
     return (
-      <div key={uuidv4()} className="tracklist">
+      <div key={uuidv4()} className="likedlist">
         <ul key={uuidv4()} className="list">
           {likedTracks.map((track) => (
             <>
@@ -115,23 +116,24 @@ export default function Playlist({
                 }`}
               >
                 {count}. {Library[Number(track) - 1].TRACK}
-                <button
-                  type="button"
-                  key={uuidv4()}
-                  className={
-                    likedTracks.includes(
-                      Number(Library[Number(track) - 1].TRACKID)
-                    )
-                      ? "likeButton liked"
-                      : "likeButton"
-                  }
-                  onClick={() =>
-                    LikeTrack(Number(Library[Number(track) - 1].TRACKID))
-                  }
-                >
-                  ❤️
-                </button>
               </li>
+              <button
+                type="button"
+                key={uuidv4()}
+                className={
+                  likedTracks.includes(
+                    Number(Library[Number(track) - 1].TRACKID)
+                  )
+                    ? "likeButton liked"
+                    : "likeButton"
+                }
+                onClick={() =>
+                  LikeTrack(Number(Library[Number(track) - 1].TRACKID))
+                }
+              >
+                ❤️
+              </button>
+
               {handleCounter()}
             </>
           ))}
@@ -141,6 +143,7 @@ export default function Playlist({
   } else if (navi === "all") {
     PlayAllTracks();
   } else if (navi === "genre") {
+    setConsoleStatus("pause");
     return <PlayGenre Library={Albumlist} OnPlayAlbum={HandlePlayAlbum} />;
   }
 }

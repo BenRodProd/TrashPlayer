@@ -1,4 +1,10 @@
-import { useState } from "react";
+import play from "../play.png";
+import next from "../next.png";
+import prev from "../prev.png";
+import pause from "../pause.png";
+import stop from "../stop.png";
+import { useState, useEffect } from "react";
+
 export default function Console({
   consoleStatus,
   setConsoleStatus,
@@ -6,24 +12,36 @@ export default function Console({
   navi,
   currentTimer,
   currentDuration,
+  audio,
 }) {
-  const [playButton, setPlayButton] = useState("⏸");
-  const audio = document.querySelector('[data-js="mp3"]');
+  const [playButton, setPlayButton] = useState(
+    <img alt="pause" src={pause} class="ConsoleButtonImage"></img>
+  );
+  // const audio = document.querySelector('[data-js="mp3"]');
   function handlePlayButton() {
     if (consoleStatus === "play") {
       setConsoleStatus("pause");
       handle("pause");
-      setPlayButton("▶");
+      setPlayButton(
+        <img class="ConsoleButtonImage" alt="play" src={play}></img>
+      );
     } else if (consoleStatus === "stop ") {
     } else {
       setConsoleStatus("play");
       handle("play");
-      setPlayButton("⏸");
+      setPlayButton(
+        <img class="ConsoleButtonImage" alt="next" src={pause}></img>
+      );
     }
   }
-  if (isNaN(audio.currentTime)) {
-    audio.currentTime = 0;
-  }
+  useEffect(() => {
+    if (consoleStatus === "play") {
+      setPlayButton(
+        <img class="ConsoleButtonImage" alt="play" src={pause}></img>
+      );
+    }
+  }, [consoleStatus]);
+
   if (navi !== "albums" && navi !== "genre" && navi !== "liked") {
     return (
       <>
@@ -40,34 +58,41 @@ export default function Console({
             onClick={() => {
               setConsoleStatus("stop");
               handle("stop");
-              setPlayButton("▶");
+              setPlayButton(
+                <img class="ConsoleButtonImage" alt="play" src={play}></img>
+              );
             }}
             type="button"
           >
-            ⏹
+            <img class="ConsoleButtonImage" alt="next" src={stop}></img>
           </button>
           <button
             className="consoleButton"
             onClick={() => {
               setConsoleStatus("prev");
               handle("prev");
-              setPlayButton("⏸");
+              setPlayButton(
+                <img alt="pause" src={pause} class="ConsoleButtonImage"></img>
+              );
             }}
             type="button"
           >
-            ⏮
+            <img alt="prev" src={prev} class="ConsoleButtonImage"></img>
           </button>
           <button
             className="consoleButton"
             onClick={() => {
               setConsoleStatus("next");
               handle("next");
-              setPlayButton("⏸");
+              setPlayButton(
+                <img alt="pause" src={pause} class="ConsoleButtonImage"></img>
+              );
             }}
             type="button"
           >
-            ⏭
+            <img alt="next" class="ConsoleButtonImage" src={next}></img>
           </button>
+
           <input
             value={(currentTimer * 100) / currentDuration}
             className="range"

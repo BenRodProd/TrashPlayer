@@ -95,10 +95,11 @@ h1 {
   text-align: center;
 }
 .likeButton {
-  position: absolute;
+  position: relative;
   border: none;
   background-color: transparent;
   right: 0;
+
   filter: grayscale();
 }
 
@@ -108,7 +109,7 @@ h1 {
   border: none;
 }
 .track {
-  width: 80%;
+  width: 90%;
 }
 .tracklist {
   position: relative;
@@ -117,6 +118,18 @@ h1 {
   background-color: rgb(87, 87, 255);
   border: 1px solid white;
   height: 20.5vh;
+  width: 85%;
+  margin: auto;
+  text-align: left;
+  color: black;
+}
+.likedlist {
+  position: relative;
+  font-size: 1rem;
+  overflow-y: scroll;
+  background-color: rgb(87, 87, 255);
+  border: 1px solid white;
+  height: 50.5vh;
   width: 85%;
   margin: auto;
   text-align: left;
@@ -180,6 +193,10 @@ footer {
 .coverlist {
   width: 90%;
 }
+.list {
+  display: grid;
+  grid-template-columns: 90% 10%;
+}
 .AlbumList {
   font-size: 1rem;
   color: white;
@@ -222,8 +239,13 @@ li {
 .consoleButton {
   background-color: transparent;
   font-size: 2rem;
-  margin: 4%;
+  margin: 2%;
   border: none;
+}
+.ConsoleButtonImage {
+  width: 50px;
+  filter: saturate(6);
+  /* filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.498)); */
 }
 button:active {
   border: none;
