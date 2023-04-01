@@ -70,10 +70,10 @@ h1 {
   font-weight: bold;
   margin: auto;
   padding: auto;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.691);
   border-color: blue;
   cursor: default;
-  border: 3px solid;
+  border: 5px solid;
   border-radius: 25%;
 }
 .timer {
@@ -107,6 +107,9 @@ h1 {
   filter: none;
   border: none;
 }
+.track {
+  width: 80%;
+}
 .tracklist {
   position: relative;
   font-size: 1rem;
@@ -131,9 +134,10 @@ h1 {
   margin-top: 0;
   margin-bottom: 0;
   margin: auto;
-  background-color: rgba(173, 216, 230, 0.611);
+  background-color: rgba(173, 216, 230, 0.435);
   width: 100%;
 
+  left: 0%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
 }
@@ -209,6 +213,7 @@ li {
   font-size: 1rem;
   background-color: aqua;
   margin-bottom: 0;
+  left: 0;
 }
 .release {
   color: lightgrey;

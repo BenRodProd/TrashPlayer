@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 export default function PlayGenre({ Library, OnPlayAlbum }) {
   const genres = Library.map((el) => {
     return el.GENRE;
@@ -29,7 +30,7 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
             className="genreImage"
             alt="Cover"
             src={"http://" + CoverNow}
-            key={CoverNow}
+            key={uuidv4()}
             id={CoverNow}
           ></img>
         </>
@@ -38,7 +39,7 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
 
     html.push(
       <>
-        <p className="genreText" onClick={playTheGenre()}>
+        <p key={uuidv4()} className="genreText" onClick={playTheGenre()}>
           {allGenres[i]}
         </p>
         <p>_____________________________</p>
@@ -48,7 +49,7 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
     return html;
   }
   return (
-    <ul className="genreDiv">
+    <ul key={uuidv4()} className="genreDiv">
       {allGenres.map((el) => getCovers(allGenres.indexOf(el)))}
       {/* {allGenres.map((el) => (
          
