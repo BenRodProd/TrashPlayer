@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-
+import { useRef } from "react";
 import PlayGenre from "./PlayGenre";
 export default function Playlist({
   navi,
@@ -15,6 +15,7 @@ export default function Playlist({
   setConsoleStatus,
   PlayAllTracks,
 }) {
+  const test = useRef();
   let count = 1;
   function handleCounter() {
     count++;
@@ -31,14 +32,16 @@ export default function Playlist({
       return "track";
     }
   }
+
   if (navi === "albums") {
     setConsoleStatus("pause");
     return (
       <div key={uuidv4()} className="AlbumList">
-        {Albumlist.map((album, index) => (
+        {Albumlist.map((album) => (
           <>
             <span key={uuidv4()}>
               <img
+                ref={test}
                 key={uuidv4()}
                 id={album.ALBUMID}
                 onClick={() => PlayAlbum(album.ALBUMID)}
@@ -64,6 +67,7 @@ export default function Playlist({
           {songList.map((track) => (
             <>
               <li
+                ref={test}
                 key={uuidv4()}
                 id={Library[Number(track) - 1].TRACKID}
                 onClick={() => playSong(Library[Number(track) - 1].TRACKID)}
@@ -141,9 +145,18 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "all") {
+    setConsoleStatus("play");
     PlayAllTracks();
   } else if (navi === "genre") {
     setConsoleStatus("pause");
-    return <PlayGenre Library={Albumlist} OnPlayAlbum={HandlePlayAlbum} />;
+    return (
+      <PlayGenre
+        setSongList={setSongList}
+        Library={Albumlist}
+        OnPlayAlbum={HandlePlayAlbum}
+        playSong={playSong}
+        songList={songList}
+      />
+    );
   }
 }

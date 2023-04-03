@@ -15,7 +15,7 @@ export default function Console({
   audio,
 }) {
   const [playButton, setPlayButton] = useState(
-    <img alt="pause" src={pause} class="ConsoleButtonImage"></img>
+    <img alt="pause" src={pause} className="ConsoleButtonImage"></img>
   );
   // const audio = document.querySelector('[data-js="mp3"]');
   function handlePlayButton() {
@@ -23,25 +23,33 @@ export default function Console({
       setConsoleStatus("pause");
       handle("pause");
       setPlayButton(
-        <img class="ConsoleButtonImage" alt="play" src={play}></img>
+        <img className="ConsoleButtonImage" alt="play" src={play}></img>
       );
     } else if (consoleStatus === "stop ") {
     } else {
       setConsoleStatus("play");
       handle("play");
       setPlayButton(
-        <img class="ConsoleButtonImage" alt="next" src={pause}></img>
+        <img className="ConsoleButtonImage" alt="next" src={pause}></img>
       );
     }
   }
   useEffect(() => {
     if (consoleStatus === "play") {
       setPlayButton(
-        <img class="ConsoleButtonImage" alt="play" src={pause}></img>
+        <img className="ConsoleButtonImage" alt="play" src={pause}></img>
       );
     }
   }, [consoleStatus]);
+  function handleValue() {
+    if (typeof currentTimer != "number" || typeof currentDuration != "number") {
+      console.log("nan", currentTimer, currentDuration);
 
+      return 0;
+    } else {
+      return (currentTimer * 100) / currentDuration;
+    }
+  }
   if (navi !== "albums" && navi !== "genre" && navi !== "liked") {
     return (
       <>
@@ -59,12 +67,12 @@ export default function Console({
               setConsoleStatus("stop");
               handle("stop");
               setPlayButton(
-                <img class="ConsoleButtonImage" alt="play" src={play}></img>
+                <img className="ConsoleButtonImage" alt="play" src={play}></img>
               );
             }}
             type="button"
           >
-            <img class="ConsoleButtonImage" alt="next" src={stop}></img>
+            <img className="ConsoleButtonImage" alt="next" src={stop}></img>
           </button>
           <button
             className="consoleButton"
@@ -72,12 +80,16 @@ export default function Console({
               setConsoleStatus("prev");
               handle("prev");
               setPlayButton(
-                <img alt="pause" src={pause} class="ConsoleButtonImage"></img>
+                <img
+                  alt="pause"
+                  src={pause}
+                  className="ConsoleButtonImage"
+                ></img>
               );
             }}
             type="button"
           >
-            <img alt="prev" src={prev} class="ConsoleButtonImage"></img>
+            <img alt="prev" src={prev} className="ConsoleButtonImage"></img>
           </button>
           <button
             className="consoleButton"
@@ -85,16 +97,20 @@ export default function Console({
               setConsoleStatus("next");
               handle("next");
               setPlayButton(
-                <img alt="pause" src={pause} class="ConsoleButtonImage"></img>
+                <img
+                  alt="pause"
+                  src={pause}
+                  className="ConsoleButtonImage"
+                ></img>
               );
             }}
             type="button"
           >
-            <img alt="next" class="ConsoleButtonImage" src={next}></img>
+            <img alt="next" className="ConsoleButtonImage" src={next}></img>
           </button>
 
           <input
-            value={(currentTimer * 100) / currentDuration}
+            value={handleValue()}
             className="range"
             type="range"
             onInput={(event) =>

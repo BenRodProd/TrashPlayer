@@ -1,5 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
-export default function PlayGenre({ Library, OnPlayAlbum }) {
+export default function PlayGenre({
+  Library,
+  OnPlayAlbum,
+  songList,
+  setSongList,
+  playSong,
+}) {
   const genres = Library.map((el) => {
     return el.GENRE;
   });
@@ -18,7 +24,6 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
   function getCovers(i) {
     let CoverNow;
     let html = [];
-    function playTheGenre() {}
 
     for (let j = 0; j < genreCover[i].length; j++) {
       CoverNow = genreCover[i][j].COVERURL;
@@ -39,7 +44,11 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
 
     html.push(
       <>
-        <p key={uuidv4()} className="genreText" onClick={playTheGenre()}>
+        <p
+          key={uuidv4()}
+          className="genreText"
+          onClick={() => playTheGenre(allGenres[i])}
+        >
           {allGenres[i]}
         </p>
         <p>_____________________________</p>
@@ -48,12 +57,22 @@ export default function PlayGenre({ Library, OnPlayAlbum }) {
 
     return html;
   }
+  function playTheGenre(genre) {
+    const playGenre = Library.filter((el) => {
+      return el.GENRE === genre;
+    });
+    const genreSongList = playGenre
+      .map((el) => el.TRACKIDS)
+      .join(",")
+      .split(",")
+      .map(Number);
+    setSongList(genreSongList);
+
+    playSong(genreSongList[0]);
+  }
   return (
     <ul key={uuidv4()} className="genreDiv">
       {allGenres.map((el) => getCovers(allGenres.indexOf(el)))}
-      {/* {allGenres.map((el) => (
-         
-        ))} */}
     </ul>
   );
 }

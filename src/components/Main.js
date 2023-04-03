@@ -176,6 +176,7 @@ export default function Main() {
         currentTimer={currentTimer}
         currentDuration={currentDuration}
         audio={audio}
+        setCurrentDuration={setCurrentDuration}
       />
 
       <TimeDisplay
