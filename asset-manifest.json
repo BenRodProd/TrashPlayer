@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TrashPlayer/static/css/main.dbd53364.css",
+    "main.js": "/TrashPlayer/static/js/main.1ccf333c.js",
+    "static/js/787.bbada270.chunk.js": "/TrashPlayer/static/js/787.bbada270.chunk.js",
+    "index.html": "/TrashPlayer/index.html",
+    "main.dbd53364.css.map": "/TrashPlayer/static/css/main.dbd53364.css.map",
+    "main.1ccf333c.js.map": "/TrashPlayer/static/js/main.1ccf333c.js.map",
+    "787.bbada270.chunk.js.map": "/TrashPlayer/static/js/787.bbada270.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbd53364.css",
+    "static/js/main.1ccf333c.js"
+  ]
+}
