@@ -100,7 +100,7 @@ export default function Main() {
     setCurrentNavi("player");
     setConsoleStatus("play");
 
-    audio.src = "http://" + Library[ID - 1].URL;
+    audio.src = Library[ID - 1].URL;
   }
 
   function FetchLocal() {

@@ -6,7 +6,7 @@ export default function Cover({ Library, track, navi }) {
       <div className="container-m cover">
         <img
           className="coverImage"
-          src={"http://" + Library[track - 1].COVERURL}
+          src={Library[track - 1].COVERURL}
           alt="CoverPicture"
         ></img>
       </div>

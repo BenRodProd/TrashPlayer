@@ -5,7 +5,7 @@
     "TRACKS": "[bACK tO tHE sOURCE,sOME gREATER mEANING]",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "1, 2",
-    "COVERURL": "benjotrash.de/trashplayer/music/bACK%20tO%20tHE%20sOURCE/cover.webp",
+    "COVERURL": "/TrashPlayer/music/back_to_the_source/cover.webp",
     "GENRE": "AMBIENT",
     "RELEASE": "FEB 2023"
   },
@@ -15,7 +15,7 @@
     "TRACKS": "pARALLEL uNIVERSE;mAN iN tHE mIRROR",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "3, 4",
-    "COVERURL": "benjotrash.de/trashplayer/music/pARALLEL%20uNIVERSE/cover.webp",
+    "COVERURL": "/TrashPlayer/music/parallel_universe/cover.webp",
     "GENRE": "TRIPHOP",
     "RELEASE": "JAN 2023"
   },
@@ -25,7 +25,7 @@
     "TRACKS": "[a lOVED lOVE,a lIVED lIVE,dRIFTED,sHIFTED,gIFTED,lIFTED,mESSED uP,tIME tO rEST,sUPPRESSED fEELINGS]",
     "NUMBEROFTRACKS": "9",
     "TRACKIDS": "5,6,7,8,9,10,11,12,13",
-    "COVERURL": "benjotrash.de/trashplayer/music/a%20lOVED%20lOVE/cover.webp",
+    "COVERURL": "/TrashPlayer/music/a_loved_love/cover.webp",
     "GENRE": "AMBIENT",
     "RELEASE": "NOV 2022"
   },
@@ -35,7 +35,7 @@
     "TRACKS": "[oPEN hEART sURGERY,eXPANDING eNDLESSNESS]",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "14,15",
-    "COVERURL": "benjotrash.de/trashplayer/music/oPEN%20hEART%20sURGERY/cover.webp",
+    "COVERURL": "/TrashPlayer/music/open_heart_surgery/cover.webp",
     "GENRE": "AMBIENT",
     "RELEASE": "DEZ 2022"
   },
@@ -45,7 +45,7 @@
     "TRACKS": "[tHE fLOW,dATA sTRUCTURE]",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "16,17",
-    "COVERURL": "benjotrash.de/trashplayer/music/tHE%20fLOW/cover.webp",
+    "COVERURL": "/TrashPlayer/music/the_flow/cover.webp",
     "GENRE": "DRUM AND BASS",
     "RELEASE": "OCT 2022"
   },
@@ -55,8 +55,28 @@
     "TRACKS": "[wINTER aNTHEM,aLWAYS bURN sLOW]",
     "NUMBEROFTRACKS": "2",
     "TRACKIDS": "18,19",
-    "COVERURL": "benjotrash.de/trashplayer/music/wINTER%20aNTHEM/cover.webp",
+    "COVERURL": "/TrashPlayer/music/winter_anthem/cover.webp",
     "GENRE": "AMBIENT",
     "RELEASE": "DEZ 2022"
+  },
+  {
+    "ALBUMID": "7",
+    "TITLE": "sTEP bY sTEP",
+    "TRACKS": "[sTEP bY sTEP, dIFFERENT sHAPE]",
+    "NUMBEROFTRACKS": "2",
+    "TRACKIDS": "20,21",
+    "COVERURL": "/TrashPlayer/music/step_by_step/cover.webp",
+    "GENRE": "DRUM AND BASS",
+    "RELEASE": "MAR 2023"
+  },
+  {
+    "ALBUMID": "8",
+    "TITLE": "eAT sLEEP cODE rEPEAT",
+    "TRACKS": "[eAT sLEEP cODE rEPEAT]",
+    "NUMBEROFTRACKS": "1",
+    "TRACKIDS": "22",
+    "COVERURL": "/TrashPlayer/music/eatsleepcoderepeat/cover.webp",
+    "GENRE": "HOUSE",
+    "RELEASE": "APR 2023"
   }
 ]

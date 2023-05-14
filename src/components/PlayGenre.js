@@ -33,7 +33,7 @@ export default function PlayGenre({
           onClick={() => OnPlayAlbum(genreCover[i][j].ALBUMID)}
           className="genreImage"
           alt="Cover"
-          src={"http://" + CoverNow}
+          src={CoverNow}
           key={uuidv4()}
           id={CoverNow}
         ></img>

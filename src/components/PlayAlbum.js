@@ -10,7 +10,7 @@ export default function PlayAlbum({ albumList }) {
               id={album.ALBUMID}
               onClick={() => PlayAlbum(album.ALBUMID)}
               className="AlbumImage"
-              src={"http://" + album.COVERURL}
+              src={album.COVERURL}
               alt="Cover"
             ></img>
             <p key={uuidv4()}>{album.TITLE}</p>
