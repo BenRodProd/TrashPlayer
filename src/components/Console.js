@@ -51,6 +51,9 @@ export default function Console({
     }
   }
   if (navi !== "albums" && navi !== "genre" && navi !== "liked") {
+    if (isNaN(handleValue)) {
+      return <div>loading</div>;
+    }
     return (
       <>
         <div className="interface">

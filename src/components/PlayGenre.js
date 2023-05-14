@@ -29,21 +29,19 @@ export default function PlayGenre({
       CoverNow = genreCover[i][j].COVERURL;
 
       html.push(
-        <>
-          <img
-            onClick={() => OnPlayAlbum(genreCover[i][j].ALBUMID)}
-            className="genreImage"
-            alt="Cover"
-            src={"http://" + CoverNow}
-            key={uuidv4()}
-            id={CoverNow}
-          ></img>
-        </>
+        <img
+          onClick={() => OnPlayAlbum(genreCover[i][j].ALBUMID)}
+          className="genreImage"
+          alt="Cover"
+          src={"http://" + CoverNow}
+          key={uuidv4()}
+          id={CoverNow}
+        ></img>
       );
     }
 
     html.push(
-      <>
+      <div key={uuidv4()}>
         <p
           key={uuidv4()}
           className="genreText"
@@ -52,7 +50,7 @@ export default function PlayGenre({
           {allGenres[i]}
         </p>
         <p>_____________________________</p>
-      </>
+      </div>
     );
 
     return html;

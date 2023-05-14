@@ -38,7 +38,7 @@ export default function Playlist({
     return (
       <div key={uuidv4()} className="AlbumList">
         {Albumlist.map((album) => (
-          <>
+          <div key={uuidv4()}>
             <span key={uuidv4()}>
               <img
                 ref={test}
@@ -55,7 +55,7 @@ export default function Playlist({
                 {album.RELEASE}
               </p>
             </span>
-          </>
+          </div>
         ))}
       </div>
     );
@@ -65,7 +65,7 @@ export default function Playlist({
       <div key={uuidv4()} className="tracklist">
         <ul key={uuidv4()} className="list">
           {songList.map((track) => (
-            <>
+            <div className="listWrapper" key={uuidv4()}>
               <li
                 ref={test}
                 key={uuidv4()}
@@ -94,7 +94,7 @@ export default function Playlist({
               </button>
 
               {handleCounter()}
-            </>
+            </div>
           ))}
         </ul>
       </div>
@@ -107,7 +107,7 @@ export default function Playlist({
       <div key={uuidv4()} className="likedlist">
         <ul key={uuidv4()} className="list">
           {likedTracks.map((track) => (
-            <>
+            <div key={uuidv4()} className="listWrapper">
               <li
                 key={uuidv4()}
                 id={Library[Number(track) - 1].TRACKID}
@@ -139,7 +139,7 @@ export default function Playlist({
               </button>
 
               {handleCounter()}
-            </>
+            </div>
           ))}
         </ul>
       </div>

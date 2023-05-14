@@ -194,8 +194,9 @@ footer {
   width: 90%;
 }
 .list {
-  display: grid;
-  grid-template-columns: 90% 10%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .AlbumList {
   font-size: 1rem;
@@ -278,4 +279,10 @@ button:focus {
 }
 ul {
   padding: 0;
+}
+.listWrapper {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  flex-direction: column;
+  width: 100%;
 }
