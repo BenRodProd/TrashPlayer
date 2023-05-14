@@ -79,7 +79,6 @@ export default function Main() {
     const allTracks = Library.map((el) => {
       return Number(el.TRACKID);
     });
-    setSongList(allTracks);
 
     playSong(allTracks[0]);
   }
@@ -100,8 +99,7 @@ export default function Main() {
     onChangeLastPlayed(ID);
     setCurrentNavi("player");
     setConsoleStatus("play");
-    // setSongList(AlbumLib[Number(Library[ID].ALBUMID)].TRACKIDS);
-    // setAlbumID(Library[ID].ALBUMID);
+
     audio.src = "http://" + Library[ID - 1].URL;
   }
 
@@ -133,11 +131,10 @@ export default function Main() {
     localStorage.setItem("LastPlayed", ID);
   }
   audio.addEventListener("timeupdate", (event) => {
-    setCurrentTimer(event.target.currentTime);
     if (isNaN(currentTimer)) {
-      console.log("nan");
       setCurrentTimer(0);
     }
+    setCurrentTimer(event.target.currentTime);
   });
   audio.addEventListener("timeupdate", (event) => {
     if (isNaN(currentDuration)) {

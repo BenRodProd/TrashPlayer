@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { useRef } from "react";
 import PlayGenre from "./PlayGenre";
+import { useEffect } from "react";
 export default function Playlist({
   navi,
   Albumlist,
@@ -12,11 +12,11 @@ export default function Playlist({
   likedTracks,
   LikeTrack,
   setSongList,
-  setConsoleStatus,
   PlayAllTracks,
+  setConsoleStatus,
 }) {
-  const test = useRef();
   let count = 1;
+
   function handleCounter() {
     count++;
   }
@@ -24,24 +24,32 @@ export default function Playlist({
     PlayAlbum(id);
   }
 
-  count = 1;
   function isPlaying(Number) {
-    if (lastPlayed == Number) {
+    if (+lastPlayed === +Number) {
       return "track active";
     } else {
       return "track";
     }
   }
+  useEffect(() => {
+    if (navi === "albums" || navi === "genre" || navi === "liked") {
+      setConsoleStatus("pause");
+    }
+  }, [navi, setConsoleStatus]);
+
+  useEffect(() => {
+    if (navi === "liked") {
+      setSongList(likedTracks);
+    }
+  }, [navi, likedTracks, setSongList]);
 
   if (navi === "albums") {
-    setConsoleStatus("pause");
     return (
       <div key={uuidv4()} className="AlbumList">
         {Albumlist.map((album) => (
           <div key={uuidv4()}>
             <span key={uuidv4()}>
               <img
-                ref={test}
                 key={uuidv4()}
                 id={album.ALBUMID}
                 onClick={() => PlayAlbum(album.ALBUMID)}
@@ -67,7 +75,6 @@ export default function Playlist({
           {songList.map((track) => (
             <div className="listWrapper" key={uuidv4()}>
               <li
-                ref={test}
                 key={uuidv4()}
                 id={Library[Number(track) - 1].TRACKID}
                 onClick={() => playSong(Library[Number(track) - 1].TRACKID)}
@@ -100,9 +107,9 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "liked") {
-    setConsoleStatus("pause");
+    // setConsoleStatus("pause");
     count = 1;
-    setSongList(likedTracks);
+    // setSongList(likedTracks);
     return (
       <div key={uuidv4()} className="likedlist">
         <ul key={uuidv4()} className="list">
@@ -145,10 +152,9 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "all") {
-    setConsoleStatus("play");
+    // setConsoleStatus("play");
     PlayAllTracks();
   } else if (navi === "genre") {
-    setConsoleStatus("pause");
     return (
       <PlayGenre
         setSongList={setSongList}
