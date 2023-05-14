@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import PlayGenre from "./PlayGenre";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 export default function Playlist({
   navi,
   Albumlist,
@@ -15,6 +15,7 @@ export default function Playlist({
   PlayAllTracks,
   setConsoleStatus,
 }) {
+  const songListRef = useRef(null);
   let count = 1;
 
   function handleCounter() {
@@ -31,11 +32,15 @@ export default function Playlist({
       return "track";
     }
   }
+
   useEffect(() => {
     if (navi === "albums" || navi === "genre" || navi === "liked") {
       setConsoleStatus("pause");
     }
-  }, [navi, setConsoleStatus]);
+    if (navi === "all") {
+      PlayAllTracks();
+    }
+  }, [navi, setConsoleStatus, PlayAllTracks]);
 
   useEffect(() => {
     if (navi === "liked") {
@@ -107,9 +112,8 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "liked") {
-    // setConsoleStatus("pause");
     count = 1;
-    // setSongList(likedTracks);
+
     return (
       <div key={uuidv4()} className="likedlist">
         <ul key={uuidv4()} className="list">
@@ -151,9 +155,6 @@ export default function Playlist({
         </ul>
       </div>
     );
-  } else if (navi === "all") {
-    // setConsoleStatus("play");
-    PlayAllTracks();
   } else if (navi === "genre") {
     return (
       <PlayGenre

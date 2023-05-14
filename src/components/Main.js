@@ -79,7 +79,7 @@ export default function Main() {
     const allTracks = Library.map((el) => {
       return Number(el.TRACKID);
     });
-
+    setSongList(allTracks);
     playSong(allTracks[0]);
   }
   function PlayAlbum(ID) {

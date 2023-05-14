@@ -42,18 +42,21 @@ export default function Console({
     }
   }, [consoleStatus]);
   function handleValue() {
-    if (typeof currentTimer != "number" || typeof currentDuration != "number") {
-      console.log("nan", currentTimer, currentDuration);
-
+    if (
+      typeof currentTimer !== "number" ||
+      typeof currentDuration !== "number" ||
+      isNaN(currentTimer) ||
+      isNaN(currentDuration)
+    ) {
       return 0;
     } else {
       return (currentTimer * 100) / currentDuration;
     }
   }
+  if (isNaN(handleValue())) {
+    return <div></div>;
+  }
   if (navi !== "albums" && navi !== "genre" && navi !== "liked") {
-    if (isNaN(handleValue)) {
-      return <div>loading</div>;
-    }
     return (
       <>
         <div className="interface">
@@ -111,16 +114,15 @@ export default function Console({
           >
             <img alt="next" className="ConsoleButtonImage" src={next}></img>
           </button>
-
-          <input
-            value={handleValue()}
-            className="range"
-            type="range"
-            onInput={(event) =>
-              (audio.currentTime = (currentDuration / 100) * event.target.value)
-            }
-          ></input>
         </div>
+        <input
+          value={handleValue()}
+          className="range"
+          type="range"
+          onInput={(event) =>
+            (audio.currentTime = (currentDuration / 100) * event.target.value)
+          }
+        ></input>
       </>
     );
   }
