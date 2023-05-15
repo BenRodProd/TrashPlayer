@@ -16,6 +16,7 @@ body {
   margin: auto;
   text-align: center;
   background-color: blue;
+  max-width: 700px;
 }
 .main_wrapper {
   background-color: blue;
