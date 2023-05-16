@@ -10,10 +10,25 @@ export default function Console({
   setConsoleStatus,
   handle,
   navi,
-  currentTimer,
-  currentDuration,
-  audio,
 }) {
+  const [currentTimer, setCurrentTimer] = useState(0);
+  const [currentDuration, setCurrentDuration] = useState(0);
+  const audio = document.querySelector('[data-js="mp3"]');
+  audio.addEventListener("timeupdate", (event) => {
+    if (isNaN(currentTimer)) {
+      setCurrentTimer(0);
+    }
+    setCurrentTimer(event.target.currentTime);
+  });
+  audio.addEventListener("timeupdate", (event) => {
+    if (isNaN(currentDuration)) {
+      setCurrentDuration(0);
+    }
+    setCurrentDuration(event.target.duration);
+  });
+  if (isNaN(currentDuration)) {
+    setCurrentDuration(10);
+  }
   const [playButton, setPlayButton] = useState(
     <img alt="pause" src={pause} className="ConsoleButtonImage"></img>
   );

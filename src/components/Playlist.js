@@ -30,13 +30,13 @@ export default function Playlist({
   }
   useEffect(() => {
     if (songListRef.current && lastPlayed !== null) {
-      const activeSongIndex = songList.findIndex(
-        (track) => Library[Number(track) - 1].TRACKID === lastPlayed
-      );
-
-      const activeSongElement = songListRef.current.children[activeSongIndex];
+      const activeSongElement =
+        songListRef.current.querySelector(".track.active");
       if (activeSongElement) {
-        songListRef.current.scrollTop = activeSongElement.offsetTop;
+        activeSongElement.scrollIntoView({
+          behavior: "auto",
+          block: "start",
+        });
       }
     }
   }, [lastPlayed]);

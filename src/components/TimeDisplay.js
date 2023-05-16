@@ -1,12 +1,30 @@
-export default function TimeDisplay({ currentTimer, currentDuration, navi }) {
+import { useState } from "react";
+export default function TimeDisplay({ navi }) {
+  const [currentTimer, setCurrentTimer] = useState(0);
+  const [currentDuration, setCurrentDuration] = useState(0);
+  const audio = document.querySelector('[data-js="mp3"]');
+  audio.addEventListener("timeupdate", (event) => {
+    if (isNaN(currentTimer)) {
+      setCurrentTimer(0);
+    }
+    setCurrentTimer(event.target.currentTime);
+  });
+  audio.addEventListener("timeupdate", (event) => {
+    if (isNaN(currentDuration)) {
+      setCurrentDuration(0);
+    }
+    setCurrentDuration(event.target.duration);
+  });
   if (isNaN(currentDuration)) {
-    currentDuration = 0;
+    setCurrentDuration(10);
   }
   let DurationShow;
   let DurationFixed = currentDuration / 60;
   let TimerSeconds = Math.floor(currentTimer);
   let ZeitDisplay;
-
+  if (isNaN(currentDuration)) {
+    setCurrentDuration(0);
+  }
   if (currentDuration > 600) {
     DurationShow = DurationFixed.toFixed(2);
   } else {

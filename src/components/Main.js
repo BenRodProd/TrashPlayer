@@ -130,26 +130,12 @@ export default function Main() {
       }
     }, []);
   }
-  console.log("Main trigger");
+
   function onChangeLastPlayed(ID) {
     setLastPlayed(ID);
     localStorage.setItem("LastPlayed", ID);
   }
-  audio.addEventListener("timeupdate", (event) => {
-    if (isNaN(currentTimer)) {
-      setCurrentTimer(0);
-    }
-    setCurrentTimer(event.target.currentTime);
-  });
-  audio.addEventListener("timeupdate", (event) => {
-    if (isNaN(currentDuration)) {
-      setCurrentDuration(0);
-    }
-    setCurrentDuration(event.target.duration);
-  });
-  if (isNaN(currentDuration)) {
-    setCurrentDuration(10);
-  }
+
   return (
     <>
       <Header navi={currentNavi} header={Library[lastPlayed - 1].TRACK} />
@@ -181,11 +167,7 @@ export default function Main() {
         setCurrentDuration={setCurrentDuration}
       />
 
-      <TimeDisplay
-        currentDuration={currentDuration}
-        currentTimer={currentTimer}
-        navi={currentNavi}
-      />
+      <TimeDisplay navi={currentNavi} />
       <Navigation setCurrentNavi={handleCurrentNavi} />
     </>
   );
