@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Header from "./Header";
 import Cover from "./Cover";
 import Console from "./Console";
@@ -24,7 +24,9 @@ export default function Main() {
 
   const audio = document.querySelector('[data-js="mp3"]');
   //   const local = FetchLocal();
+
   FetchLocal();
+
   function handleCurrentNavi(navi) {
     setCurrentNavi(navi);
   }
@@ -94,14 +96,17 @@ export default function Main() {
     setSongList(newAlbumTracks);
     setConsoleStatus("play");
   }
-  function playSong(ID) {
-    audio.pause();
-    onChangeLastPlayed(ID);
-    setCurrentNavi("player");
-    setConsoleStatus("play");
+  const playSong = useCallback(
+    (ID) => {
+      audio.pause();
+      onChangeLastPlayed(ID);
+      setCurrentNavi("player");
+      setConsoleStatus("play");
 
-    audio.src = Library[ID - 1].URL;
-  }
+      audio.src = Library[ID - 1].URL;
+    },
+    [audio, Library, setCurrentNavi]
+  );
 
   function FetchLocal() {
     useEffect(() => {
@@ -125,7 +130,7 @@ export default function Main() {
       }
     }, []);
   }
-
+  console.log("Main trigger");
   function onChangeLastPlayed(ID) {
     setLastPlayed(ID);
     localStorage.setItem("LastPlayed", ID);

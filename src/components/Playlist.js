@@ -16,11 +16,7 @@ export default function Playlist({
   setConsoleStatus,
 }) {
   const songListRef = useRef(null);
-  let count = 1;
 
-  function handleCounter() {
-    count++;
-  }
   function HandlePlayAlbum(id) {
     PlayAlbum(id);
   }
@@ -32,6 +28,18 @@ export default function Playlist({
       return "track";
     }
   }
+  useEffect(() => {
+    if (songListRef.current && lastPlayed !== null) {
+      const activeSongIndex = songList.findIndex(
+        (track) => Library[Number(track) - 1].TRACKID === lastPlayed
+      );
+
+      const activeSongElement = songListRef.current.children[activeSongIndex];
+      if (activeSongElement) {
+        songListRef.current.scrollTop = activeSongElement.offsetTop;
+      }
+    }
+  }, [lastPlayed]);
 
   useEffect(() => {
     if (navi === "albums" || navi === "genre" || navi === "liked") {
@@ -73,11 +81,10 @@ export default function Playlist({
       </div>
     );
   } else if (navi === "player") {
-    count = 1;
     return (
       <div key={uuidv4()} className="tracklist">
-        <ul key={uuidv4()} className="list">
-          {songList.map((track) => (
+        <ul key={uuidv4()} ref={songListRef} className="list">
+          {songList.map((track, index) => (
             <div className="listWrapper" key={uuidv4()}>
               <li
                 key={uuidv4()}
@@ -86,7 +93,7 @@ export default function Playlist({
                 alt="Cover"
                 className={isPlaying(Library[Number(track) - 1].TRACKID)}
               >
-                {count}. {Library[Number(track) - 1].TRACK}
+                {index + 1}. {Library[Number(track) - 1].TRACK}
               </li>
               <button
                 type="button"
@@ -104,20 +111,16 @@ export default function Playlist({
               >
                 ❤️
               </button>
-
-              {handleCounter()}
             </div>
           ))}
         </ul>
       </div>
     );
   } else if (navi === "liked") {
-    count = 1;
-
     return (
       <div key={uuidv4()} className="likedlist">
         <ul key={uuidv4()} className="list">
-          {likedTracks.map((track) => (
+          {likedTracks.map((track, index) => (
             <div key={uuidv4()} className="listWrapper">
               <li
                 key={uuidv4()}
@@ -130,7 +133,7 @@ export default function Playlist({
                     : "track"
                 }`}
               >
-                {count}. {Library[Number(track) - 1].TRACK}
+                {index + 1}. {Library[Number(track) - 1].TRACK}
               </li>
               <button
                 type="button"
@@ -148,8 +151,6 @@ export default function Playlist({
               >
                 ❤️
               </button>
-
-              {handleCounter()}
             </div>
           ))}
         </ul>
