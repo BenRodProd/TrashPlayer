@@ -38,8 +38,8 @@ export default function Main() {
       setLikedTracks(newlikedTracks);
       localStorage.setItem("liked", newlikedTracks);
     } else {
-      likedTracks.push(ID);
-      setLikedTracks(likedTracks);
+      const newlikedTracks = [...likedTracks, ID];
+      setLikedTracks(newlikedTracks);
       localStorage.setItem("liked", likedTracks);
     }
   }
